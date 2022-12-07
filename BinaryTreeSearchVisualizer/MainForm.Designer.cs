@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.insertButton = new System.Windows.Forms.Button();
             this.insertTextBox = new System.Windows.Forms.TextBox();
             this.removeTextBox = new System.Windows.Forms.TextBox();
@@ -156,6 +157,7 @@
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.insertTextBox);
             this.Controls.Add(this.insertButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Binary Tree Search Visualizer";
             this.Load += new System.EventHandler(this.MainForm_Load);
