@@ -6,5 +6,10 @@ namespace BinaryTreeSearchVisualizer
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
