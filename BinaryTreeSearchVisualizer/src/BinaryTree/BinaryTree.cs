@@ -15,32 +15,32 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
             root = null;
         }
 
-        public BinaryTree(int value)
+        public BinaryTree(long value)
         {
             root = new TreeNode(value, null);
         }
 
-        public TreeNode Insert(int value)
+        public TreeNode Insert(long value)
         {
             return InsertTo(value, root);
         }
 
-        public bool IsPresent(int value)
+        public bool IsPresent(long value)
         {
             return IsPresenetIn(value, root);
         }
 
-        public void Remove(int value)
+        public void Remove(long value)
         {
             RemoveFrom(value, root);
         }
 
-        public TreeNode FindAt(int index)
+        public TreeNode FindAt(long index)
         {
             return FindAt(index, root);
         }
 
-        private TreeNode? InsertTo(int value, TreeNode? targetNode)
+        private TreeNode? InsertTo(long  value, TreeNode? targetNode)
         {
             if (targetNode == null)
             {
@@ -68,7 +68,7 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
             return null;
         }
 
-        private bool IsPresenetIn(int value, TreeNode? targetNode)
+        private bool IsPresenetIn(long value, TreeNode? targetNode)
         {
             if (targetNode == null)
             {
@@ -85,7 +85,7 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
             return true;
         }
 
-        private bool RemoveFrom(int value, TreeNode? targetNode)
+        private bool RemoveFrom(long value, TreeNode? targetNode)
         {
             if (targetNode == null)
             {

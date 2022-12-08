@@ -8,13 +8,13 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
 {
     internal class TreeNode
     {
-        private int value;
+        private long value;
         private int size;
         public TreeNode? parent;
         public TreeNode? leftChild;
         public TreeNode? rightChild;
 
-        public TreeNode(int value, TreeNode? parent)
+        public TreeNode(long value, TreeNode? parent)
         {
             this.value = value;
             size = 1;
@@ -22,7 +22,7 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
             this.parent = parent;
         }
 
-        public int Value { get { return value; } set { this.value = value; } }
+        public long Value { get { return value; } set { this.value = value; } }
 
         public int Size { get { return size; } set { this.size = value; } }
 
