@@ -2,9 +2,9 @@
 {
     internal static class Utils
     {
-        public static long ExtractNumber(string input)
+        public static long GetNumber(TextBox textBox)
         {
-            var success = long.TryParse(input, out long result);
+            var success = long.TryParse(textBox.Text, out long result);
             if (success)
             {
                 return result;
