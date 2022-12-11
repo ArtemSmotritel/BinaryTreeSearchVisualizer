@@ -35,12 +35,12 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.findButton = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.findKElementTextBox = new System.Windows.Forms.TextBox();
             this.findKElementButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.messageLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // insertButton
@@ -52,6 +52,7 @@
             this.insertButton.TabIndex = 0;
             this.insertButton.Text = "Insert";
             this.insertButton.UseVisualStyleBackColor = true;
+            this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
             // 
             // insertTextBox
             // 
@@ -76,6 +77,7 @@
             this.removeButton.TabIndex = 2;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // findTextBox
             // 
@@ -93,13 +95,14 @@
             this.findButton.TabIndex = 4;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
-            // textBox4
+            // findKElementTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(660, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(85, 27);
-            this.textBox4.TabIndex = 7;
+            this.findKElementTextBox.Location = new System.Drawing.Point(660, 12);
+            this.findKElementTextBox.Name = "findKElementTextBox";
+            this.findKElementTextBox.Size = new System.Drawing.Size(85, 27);
+            this.findKElementTextBox.TabIndex = 7;
             // 
             // findKElementButton
             // 
@@ -110,6 +113,7 @@
             this.findKElementButton.TabIndex = 6;
             this.findKElementButton.Text = "Find k-th smallest";
             this.findKElementButton.UseVisualStyleBackColor = true;
+            this.findKElementButton.Click += new System.EventHandler(this.findKElementButton_Click);
             // 
             // resetButton
             // 
@@ -120,15 +124,17 @@
             this.resetButton.TabIndex = 8;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1238, 584);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox.Location = new System.Drawing.Point(12, 55);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1238, 584);
+            this.pictureBox.TabIndex = 9;
+            this.pictureBox.TabStop = false;
             // 
             // messageLabel
             // 
@@ -136,9 +142,8 @@
             this.messageLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messageLabel.Location = new System.Drawing.Point(12, 644);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(67, 20);
+            this.messageLabel.Size = new System.Drawing.Size(0, 20);
             this.messageLabel.TabIndex = 10;
-            this.messageLabel.Text = "Message";
             // 
             // MainForm
             // 
@@ -147,9 +152,9 @@
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.findKElementTextBox);
             this.Controls.Add(this.findKElementButton);
             this.Controls.Add(this.findTextBox);
             this.Controls.Add(this.findButton);
@@ -161,7 +166,7 @@
             this.Name = "MainForm";
             this.Text = "Binary Tree Search Visualizer";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +180,10 @@
         private Button removeButton;
         private TextBox findTextBox;
         private Button findButton;
-        private TextBox textBox4;
+        private TextBox findKElementTextBox;
         private Button findKElementButton;
         private Button resetButton;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBox;
         private Label messageLabel;
     }
 }
