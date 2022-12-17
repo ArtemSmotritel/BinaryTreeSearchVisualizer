@@ -16,7 +16,15 @@
 
         public void Insert(long value)
         {
+            var backupRoot = root;
+            try
+            {
             root = InsertTo(value, root);
+        }
+            catch (Exception)
+            {
+                root = backupRoot;
+            }
         }
 
         public bool IsPresent(long value)
@@ -58,10 +66,16 @@
             if (value > root.Value)
             {
                 root.rightChild = InsertTo(value, root.rightChild);
+                root.IncreaseWeight();
             }
             else if (value < root.Value)
             {
                 root.leftChild = InsertTo(value, root.leftChild);
+                root.IncreaseWeight();
+            }
+            else if (value == root.Value)
+            {
+                throw new Exception();
             }
             return root;
         }
@@ -127,7 +141,7 @@
 
         private TreeNode? FindAt(int index, TreeNode? root)
         {
-            if (index > root.Size || root == null)
+            if (root == null || index > root.Size)
             {
                 return null;
             }
@@ -160,6 +174,7 @@
                 return;
             }
             var nodeInfo = new NodeInfo(node, parentNodeInfo);
+            node.NodeInfo = nodeInfo;
             list.Add(nodeInfo);
             AddNodeInfosToList(node.leftChild, nodeInfo, list);
             AddNodeInfosToList(node.rightChild, nodeInfo, list);
