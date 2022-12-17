@@ -50,7 +50,7 @@ namespace BinaryTreeSearchVisualizer
             var okay = ValidateInput(findTextBox);
             if (okay)
             {
-                textBox1.Text += " simple_found ";
+                
             }
             RefreshTextBox(findTextBox);
         }
@@ -61,9 +61,9 @@ namespace BinaryTreeSearchVisualizer
             var okay = ValidateInput(findKElementTextBox);
             if (okay)
             {
-                textBox1.Text += " foundK ";
-                RefreshTextBox(findKElementTextBox);
+                
             }
+            RefreshTextBox(findKElementTextBox);
         }
 
         private void resetButton_Click(object sender, EventArgs e)

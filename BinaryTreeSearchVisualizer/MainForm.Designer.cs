@@ -41,8 +41,7 @@ namespace BinaryTreeSearchVisualizer
             this.findKElementButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.drawBox = new DrawBox();
+            this.drawBox = new BinaryTreeSearchVisualizer.src.DrawBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,22 +138,13 @@ namespace BinaryTreeSearchVisualizer
             this.messageLabel.TabIndex = 10;
             this.messageLabel.Text = "Message";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(772, 110);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(342, 360);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "abobusabobusabobusabobusabobusabobusabobus";
-            // 
             // drawBox
             // 
             this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
             this.drawBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.drawBox.Location = new System.Drawing.Point(12, 55);
             this.drawBox.Name = "drawBox";
-            this.drawBox.Size = new System.Drawing.Size(754, 586);
+            this.drawBox.Size = new System.Drawing.Size(1238, 586);
             this.drawBox.TabIndex = 9;
             this.drawBox.TabStop = false;
             this.drawBox.Paint += new System.Windows.Forms.PaintEventHandler(this.drawBox_Paint);
@@ -165,7 +155,6 @@ namespace BinaryTreeSearchVisualizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.drawBox);
             this.Controls.Add(this.resetButton);
@@ -200,6 +189,5 @@ namespace BinaryTreeSearchVisualizer
         private Button findKElementButton;
         private Button resetButton;
         private Label messageLabel;
-        private TextBox textBox1;
     }
 }
