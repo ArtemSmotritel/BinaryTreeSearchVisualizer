@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BinaryTreeSearchVisualizer.src.BinaryTree
+﻿namespace BinaryTreeSearchVisualizer.src.ApplicationTree
 {
     internal class TreeNode
     {
         private long value;
-        private int size;
-        public TreeNode? parent;
+        private int size;        
         public TreeNode? leftChild;
         public TreeNode? rightChild;
 
-        public TreeNode(long value, TreeNode? parent)
+        public TreeNode(long value)
         {
             this.value = value;
             size = 1;
             leftChild = rightChild = null;
-            this.parent = parent;
         }
 
         public long Value { get { return value; } set { this.value = value; } }
@@ -29,5 +21,10 @@ namespace BinaryTreeSearchVisualizer.src.BinaryTree
         public void IncreaseWeight() { size += 1; }
 
         public void DecreaseWeight() { size -= 1; }
+
+        public override string? ToString()
+        {
+            return value.ToString();
+        }
     }
 }
