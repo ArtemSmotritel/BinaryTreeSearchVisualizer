@@ -174,6 +174,15 @@
                 return;
             }
             var nodeInfo = new NodeInfo(node, parentNodeInfo);
+            if (node.rightChild != null) 
+            {
+                nodeInfo.RightChildNodeInfo = new NodeInfo(node.rightChild, nodeInfo);
+            }
+            if (node.leftChild != null)
+            {
+                nodeInfo.LeftChildNodeInfo = new NodeInfo(node.leftChild, nodeInfo);
+            }
+            nodeInfo.DetermineCoordinates();
             node.NodeInfo = nodeInfo;
             list.Add(nodeInfo);
             AddNodeInfosToList(node.leftChild, nodeInfo, list);

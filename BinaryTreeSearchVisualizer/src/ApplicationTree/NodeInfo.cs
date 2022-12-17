@@ -7,19 +7,43 @@
         public NodeInfo(TreeNode node, NodeInfo? parentNodeInfo) 
         {
             Node = node;
-            ParentNodeInfo= parentNodeInfo;
+            ParentNodeInfo = parentNodeInfo;
+            LeftChildNodeInfo = null;
+            RightChildNodeInfo = null;
             DetermineWhatChild();
-            DetermineCoordinates();
         }
 
         public TreeNode Node { get; private set; }
         public NodeInfo? ParentNodeInfo { get; private set; }
+        public NodeInfo? LeftChildNodeInfo { get; set; }
+        public NodeInfo? RightChildNodeInfo { get; set; }
         public bool IsRightChild {  get; private set; }
         public bool IsLeftChild {  get; private set; }
         public bool IsRoot {  get; private set; }
         public int CenterX { get; private set; }
         public int CenterY { get; private set; }
         public int Radius { get { return 30; } }
+
+        public void DetermineCoordinates()
+        {
+            if (IsRoot)
+            {
+                CenterX = 650;
+                CenterY = 150;
+            }
+            else if (IsLeftChild)
+            {
+                var nodeCountOffset = RightChildNodeInfo?.Node?.Size ?? 0;
+                CenterX = ParentNodeInfo!.CenterX - (NodeOffset * (nodeCountOffset + 1));
+                CenterY = ParentNodeInfo.CenterY + NodeOffset;
+            }
+            else if (IsRightChild)
+            {
+                var nodeCountOffset = LeftChildNodeInfo?.Node?.Size ?? 0;
+                CenterX = ParentNodeInfo!.CenterX + (NodeOffset * (nodeCountOffset + 1));
+                CenterY = ParentNodeInfo.CenterY + NodeOffset;
+            }
+        }
 
         private void DetermineWhatChild()
         {
@@ -40,25 +64,6 @@
             else if (parentNode.leftChild == thisNode)
             {
                 IsLeftChild = true;
-            }
-        }
-
-        private void DetermineCoordinates()
-        {
-            if (IsRoot)
-            {
-                CenterX = 650;
-                CenterY = 150;
-            }
-            else if (IsLeftChild)
-            {
-                CenterX = ParentNodeInfo!.CenterX - (NodeOffset * Node.Size);
-                CenterY = ParentNodeInfo.CenterY + NodeOffset;
-            }
-            else if (IsRightChild)
-            {
-                CenterX = ParentNodeInfo!.CenterX + (NodeOffset * Node.Size);
-                CenterY = ParentNodeInfo.CenterY + NodeOffset;
             }
         }
 
