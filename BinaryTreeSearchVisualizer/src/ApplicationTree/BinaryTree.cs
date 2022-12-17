@@ -19,8 +19,8 @@
             var backupRoot = root;
             try
             {
-            root = InsertTo(value, root);
-        }
+                root = InsertTo(value, root);
+            }
             catch (Exception)
             {
                 root = backupRoot;
@@ -34,7 +34,15 @@
 
         public void Remove(long value)
         {
-            root = RemoveFrom(value, root);
+            var backupRoot = root;
+            try
+            {
+                root = RemoveFrom(value, root);
+            }
+            catch (Exception)
+            {
+                root = backupRoot;
+            }
         }
 
         public TreeNode? FindAt(int index)
@@ -97,33 +105,38 @@
             return true;
         }
 
-        private TreeNode RemoveFrom(long value, TreeNode? root)
+        private TreeNode? RemoveFrom(long value, TreeNode? root)
         {
             if (root == null)
             {
-                return root;
+                throw new Exception();
             }
 
             if (value > root.Value)
             {
-                 root.rightChild = RemoveFrom(value, root.rightChild);                
+                 root.rightChild = RemoveFrom(value, root.rightChild);
+                 root.DecreaseWeight();
             }
             else if (value < root.Value)
             {
-                root.leftChild = RemoveFrom(value, root.leftChild);                
+                root.leftChild = RemoveFrom(value, root.leftChild);
+                root.DecreaseWeight();
             }
             else
             {
                 if (root.rightChild == null)
                 {
+                    root.DecreaseWeight();
                     return root.leftChild;
                 }
                 if (root.leftChild == null)
                 {
+                    root.DecreaseWeight();
                     return root.rightChild;
                 }
                 root.Value = MinValue(root.rightChild);
                 root.rightChild = RemoveFrom(root.Value, root.rightChild);
+                root.DecreaseWeight();
             }
             return root;
         }
@@ -184,7 +197,7 @@
             }
             nodeInfo.DetermineCoordinates();
             node.NodeInfo = nodeInfo;
-            list.Add(nodeInfo);
+            list.Add(nodeInfo); 
             AddNodeInfosToList(node.leftChild, nodeInfo, list);
             AddNodeInfosToList(node.rightChild, nodeInfo, list);
         }
