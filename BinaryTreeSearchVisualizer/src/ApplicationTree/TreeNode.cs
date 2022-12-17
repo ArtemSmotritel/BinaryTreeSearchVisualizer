@@ -3,7 +3,7 @@
     internal class TreeNode
     {
         private long value;
-        private int size;        
+        private int size;
         public TreeNode? leftChild;
         public TreeNode? rightChild;
 
@@ -17,6 +17,8 @@
         public long Value { get { return value; } set { this.value = value; } }
 
         public int Size { get { return size; } set { this.size = value; } }
+
+        public NodeInfo NodeInfo { get; set; }
 
         public void IncreaseWeight() { size += 1; }
 
