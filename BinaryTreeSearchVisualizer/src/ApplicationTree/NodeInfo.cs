@@ -19,7 +19,7 @@
         public bool IsRoot {  get; private set; }
         public int CenterX { get; private set; }
         public int CenterY { get; private set; }
-        public int Radius { get { return 25; } }
+        public int Radius { get { return 30; } }
 
         private void DetermineWhatChild()
         {
@@ -47,7 +47,7 @@
         {
             if (IsRoot)
             {
-                CenterX = 350;
+                CenterX = 650;
                 CenterY = 150;
             }
             else if (IsLeftChild)
