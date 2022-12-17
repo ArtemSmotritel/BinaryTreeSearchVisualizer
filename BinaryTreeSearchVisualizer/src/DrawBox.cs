@@ -14,6 +14,10 @@ namespace BinaryTreeSearchVisualizer.src
         {
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             var nodeInfos = binaryTree.GetNodesInfo();
+            foreach ( var nodeInfo in nodeInfos )
+            {
+                GraphicUtils.DrawConnectionToParent(nodeInfo, graphics);
+            }
             foreach (var node in nodeInfos)
             {
                 GraphicUtils.DrawNode(node, graphics);
