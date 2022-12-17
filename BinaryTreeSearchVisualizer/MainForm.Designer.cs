@@ -1,4 +1,6 @@
-﻿namespace BinaryTreeSearchVisualizer
+﻿using BinaryTreeSearchVisualizer.src;
+
+namespace BinaryTreeSearchVisualizer
 {
     partial class MainForm
     {
@@ -38,9 +40,10 @@
             this.findKElementTextBox = new System.Windows.Forms.TextBox();
             this.findKElementButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.messageLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.drawBox = new DrawBox();
+            ((System.ComponentModel.ISupportInitialize)(this.drawBox)).BeginInit();
             this.SuspendLayout();
             // 
             // insertButton
@@ -126,24 +129,35 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(12, 55);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1238, 584);
-            this.pictureBox.TabIndex = 9;
-            this.pictureBox.TabStop = false;
-            // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messageLabel.Location = new System.Drawing.Point(12, 644);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 20);
+            this.messageLabel.Size = new System.Drawing.Size(67, 20);
             this.messageLabel.TabIndex = 10;
+            this.messageLabel.Text = "Message";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(772, 110);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(342, 360);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.Text = "abobusabobusabobusabobusabobusabobusabobus";
+            // 
+            // drawBox
+            // 
+            this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.drawBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.drawBox.Location = new System.Drawing.Point(12, 55);
+            this.drawBox.Name = "drawBox";
+            this.drawBox.Size = new System.Drawing.Size(754, 586);
+            this.drawBox.TabIndex = 9;
+            this.drawBox.TabStop = false;
+            this.drawBox.Paint += new System.Windows.Forms.PaintEventHandler(this.drawBox_Paint);
             // 
             // MainForm
             // 
@@ -151,8 +165,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.drawBox);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.findKElementTextBox);
             this.Controls.Add(this.findKElementButton);
@@ -166,7 +181,7 @@
             this.Name = "MainForm";
             this.Text = "Binary Tree Search Visualizer";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drawBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,6 +189,7 @@
 
         #endregion
 
+        private DrawBox drawBox;
         private Button insertButton;
         private TextBox insertTextBox;
         private TextBox removeTextBox;
@@ -183,7 +199,7 @@
         private TextBox findKElementTextBox;
         private Button findKElementButton;
         private Button resetButton;
-        private PictureBox pictureBox;
         private Label messageLabel;
+        private TextBox textBox1;
     }
 }
