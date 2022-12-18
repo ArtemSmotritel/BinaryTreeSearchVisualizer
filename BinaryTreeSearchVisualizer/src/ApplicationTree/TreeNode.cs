@@ -18,8 +18,6 @@
 
         public int Size { get { return size; } set { this.size = value; } }
 
-        public NodeInfo NodeInfo { get; set; }
-
         public void IncreaseWeight() { size += 1; }
 
         public void DecreaseWeight() { size -= 1; }

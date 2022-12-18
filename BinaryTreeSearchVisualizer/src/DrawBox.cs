@@ -10,7 +10,7 @@ namespace BinaryTreeSearchVisualizer.src
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-        public void DrawTree(BinaryTree binaryTree, Graphics graphics)
+        public static void DrawTree(BinaryTree binaryTree, Graphics graphics)
         {
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             var nodeInfos = binaryTree.GetNodesInfo();

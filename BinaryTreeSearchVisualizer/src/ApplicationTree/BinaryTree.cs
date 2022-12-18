@@ -196,7 +196,6 @@
                 nodeInfo.LeftChildNodeInfo = new NodeInfo(node.leftChild, nodeInfo);
             }
             nodeInfo.DetermineCoordinates();
-            node.NodeInfo = nodeInfo;
             list.Add(nodeInfo); 
             AddNodeInfosToList(node.leftChild, nodeInfo, list);
             AddNodeInfosToList(node.rightChild, nodeInfo, list);
