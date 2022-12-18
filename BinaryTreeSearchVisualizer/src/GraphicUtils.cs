@@ -23,6 +23,7 @@ namespace BinaryTreeSearchVisualizer.src
         {
             DrawNodeCircle(nodeInfo, graphics);
             DrawNumber(nodeInfo, graphics);
+            DrawSize(nodeInfo, graphics);
         }
 
         public static void DrawNodeCircle(NodeInfo nodeInfo, Graphics graphics)
@@ -36,8 +37,22 @@ namespace BinaryTreeSearchVisualizer.src
 
         public static void DrawNumber(NodeInfo nodeInfo, Graphics graphics)
         {
-            graphics.DrawString(nodeInfo.Node.Value.ToString() + " " + nodeInfo.Node.Size, TreeNodeContentFont(), Brushes.Black,
-                new Point(nodeInfo.CenterX - 12, nodeInfo.CenterY - 7));
+            var value = nodeInfo.Node.Value.ToString();
+            var size = graphics.MeasureString(value, TreeNodeContentFont());
+            var point = new PointF(
+                nodeInfo.CenterX - size.Width / 2,
+                nodeInfo.CenterY - size.Height / 2);
+            graphics.DrawString(value, TreeNodeContentFont(), Brushes.Black, point);
+        }
+
+        public static void DrawSize(NodeInfo nodeInfo, Graphics graphics)
+        {
+            var value = nodeInfo.Node.Size.ToString();
+            var size = graphics.MeasureString(value, TreeNodeContentFont());
+            var point = new PointF(
+                nodeInfo.CenterX - size.Width / 2,
+                nodeInfo.CenterY - nodeInfo.Radius - size.Height);
+            graphics.DrawString(value, TreeNodeContentFont(), Brushes.Black, point);
         }
 
         public static void DrawConnectionToParent(NodeInfo nodeInfo, Graphics graphics)
