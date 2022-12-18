@@ -62,6 +62,7 @@ namespace BinaryTreeSearchVisualizer
             this.insertTextBox.Name = "insertTextBox";
             this.insertTextBox.Size = new System.Drawing.Size(85, 27);
             this.insertTextBox.TabIndex = 1;
+            this.insertTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.insertTextBox_KeyPress);
             // 
             // removeTextBox
             // 
@@ -69,6 +70,7 @@ namespace BinaryTreeSearchVisualizer
             this.removeTextBox.Name = "removeTextBox";
             this.removeTextBox.Size = new System.Drawing.Size(85, 27);
             this.removeTextBox.TabIndex = 3;
+            this.removeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.removeTextBox_KeyPress);
             // 
             // removeButton
             // 
@@ -87,6 +89,7 @@ namespace BinaryTreeSearchVisualizer
             this.findTextBox.Name = "findTextBox";
             this.findTextBox.Size = new System.Drawing.Size(85, 27);
             this.findTextBox.TabIndex = 5;
+            this.findTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.findTextBox_KeyPress);
             // 
             // findButton
             // 
@@ -105,6 +108,7 @@ namespace BinaryTreeSearchVisualizer
             this.findKElementTextBox.Name = "findKElementTextBox";
             this.findKElementTextBox.Size = new System.Drawing.Size(85, 27);
             this.findKElementTextBox.TabIndex = 7;
+            this.findKElementTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.findKElementTextBox_KeyPress);
             // 
             // findKElementButton
             // 

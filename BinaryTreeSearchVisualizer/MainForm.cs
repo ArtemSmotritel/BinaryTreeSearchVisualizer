@@ -6,11 +6,16 @@ namespace BinaryTreeSearchVisualizer
     public partial class MainForm : Form
     {
         private BinaryTree binaryTree;
+        private FormEventHandler formEventHandler;
 
         public MainForm()
         {
             InitializeComponent();
             binaryTree = new BinaryTree();
+            formEventHandler = new FormEventHandler(
+                drawBox, insertTextBox, removeTextBox, findTextBox,
+                findKElementTextBox, messageLabel, binaryTree
+            );
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -20,50 +25,22 @@ namespace BinaryTreeSearchVisualizer
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            ResetAndHideMessageLabel();
-            var okay = ValidateInput(insertTextBox);
-            if (okay)
-            {
-                var value = long.Parse(insertTextBox.Text);
-                binaryTree.Insert(value);
-                PaintTree();
-            }
-            RefreshTextBox(insertTextBox);
+            HandleInsert();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            ResetAndHideMessageLabel();
-            var okay = ValidateInput(removeTextBox);
-            if (okay)
-            {
-                var value = long.Parse(removeTextBox.Text);
-                binaryTree.Remove(value);
-                PaintTree();
-            }
-            RefreshTextBox(removeTextBox);
+            HandleRemove();
         }
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            ResetAndHideMessageLabel();
-            var okay = ValidateInput(findTextBox);
-            if (okay)
-            {
-                
-            }
-            RefreshTextBox(findTextBox);
+            HandleFind();
         }
 
         private void findKElementButton_Click(object sender, EventArgs e)
         {
-            ResetAndHideMessageLabel();
-            var okay = ValidateInput(findKElementTextBox);
-            if (okay)
-            {
-                
-            }
-            RefreshTextBox(findKElementTextBox);
+            HandleFindKElement();
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -110,11 +87,92 @@ namespace BinaryTreeSearchVisualizer
         {
             textBox.Text = "";
             textBox.BackColor = Color.White;
+            textBox.Focus();
         }
 
         private void drawBox_Paint(object sender, PaintEventArgs e)
         {
             drawBox.DrawTree(binaryTree, e.Graphics);
+        }
+
+        private void insertTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                HandleInsert();
+            }
+        }
+
+        private void HandleInsert()
+        {
+            ResetAndHideMessageLabel();
+            var okay = ValidateInput(insertTextBox);
+            if (okay)
+            {
+                var value = long.Parse(insertTextBox.Text);
+                binaryTree.Insert(value);
+                PaintTree();
+            }
+            RefreshTextBox(insertTextBox);
+        }
+
+        private void HandleRemove()
+        {
+            ResetAndHideMessageLabel();
+            var okay = ValidateInput(removeTextBox);
+            if (okay)
+            {
+                var value = long.Parse(removeTextBox.Text);
+                binaryTree.Remove(value);
+                PaintTree();
+            }
+            RefreshTextBox(removeTextBox);
+        }
+
+        private void HandleFind()
+        {
+            ResetAndHideMessageLabel();
+            var okay = ValidateInput(findTextBox);
+            if (okay)
+            {
+
+            }
+            RefreshTextBox(findTextBox);
+        }
+
+        private void HandleFindKElement()
+        {
+            ResetAndHideMessageLabel();
+            var okay = ValidateInput(findKElementTextBox);
+            if (okay)
+            {
+
+            }
+            RefreshTextBox(findKElementTextBox);
+        }
+
+        private void removeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                HandleRemove();
+            }
+        }
+
+        private void findTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                HandleFind();
+            }
+        }
+
+        private void findKElementTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                HandleFindKElement();
+            }
         }
     }
 }
