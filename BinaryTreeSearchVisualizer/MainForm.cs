@@ -20,7 +20,7 @@ namespace BinaryTreeSearchVisualizer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            ActiveControl = insertTextBox;
         }
 
         private void insertButton_Click(object sender, EventArgs e)
