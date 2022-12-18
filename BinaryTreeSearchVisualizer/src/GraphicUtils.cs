@@ -9,6 +9,11 @@ namespace BinaryTreeSearchVisualizer.src
             return new Pen(Color.Black, 4);
         }
 
+        public static Pen HighlightPen()
+        {
+            return new Pen(Color.DarkOrchid, 6);
+        }
+
         public static Pen ConnectionPen()
         {   
             return new Pen(Color.Black, 2);
@@ -17,6 +22,14 @@ namespace BinaryTreeSearchVisualizer.src
         public static Font TreeNodeContentFont()
         {
             return SystemFonts.DefaultFont;
+        }
+
+        public static void HighlightNode(NodeInfo nodeInfo, Graphics graphics)
+        {
+            int xTopLeft = nodeInfo.CenterX - nodeInfo.Radius;
+            int yTopLeft = nodeInfo.CenterY - nodeInfo.Radius;
+            int diameter = nodeInfo.Radius * 2;
+            graphics.DrawEllipse(HighlightPen(), xTopLeft, yTopLeft, diameter, diameter);
         }
 
         public static void DrawNode(NodeInfo nodeInfo, Graphics graphics)
