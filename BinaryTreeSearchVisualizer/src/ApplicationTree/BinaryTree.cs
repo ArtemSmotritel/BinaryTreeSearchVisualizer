@@ -186,16 +186,7 @@
             {
                 return;
             }
-            var nodeInfo = new NodeInfo(node, parentNodeInfo);
-            if (node.rightChild != null) 
-            {
-                nodeInfo.RightChildNodeInfo = new NodeInfo(node.rightChild, nodeInfo);
-            }
-            if (node.leftChild != null)
-            {
-                nodeInfo.LeftChildNodeInfo = new NodeInfo(node.leftChild, nodeInfo);
-            }
-            nodeInfo.DetermineCoordinates();
+            var nodeInfo = NodeInfo.Create(node, parentNodeInfo);
             list.Add(nodeInfo); 
             AddNodeInfosToList(node.leftChild, nodeInfo, list);
             AddNodeInfosToList(node.rightChild, nodeInfo, list);
