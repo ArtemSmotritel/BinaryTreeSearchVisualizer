@@ -58,6 +58,7 @@ namespace BinaryTreeSearchVisualizer
         {
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
+                e.Handled = true;
                 formEventHandler.HandleInsert();
             }
         }
@@ -66,6 +67,7 @@ namespace BinaryTreeSearchVisualizer
         {
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
+                e.Handled = true;
                 formEventHandler.HandleRemove();
             }
         }
@@ -74,6 +76,7 @@ namespace BinaryTreeSearchVisualizer
         {
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
+                e.Handled = true;
                 formEventHandler.HandleFind();
             }
         }
@@ -82,6 +85,7 @@ namespace BinaryTreeSearchVisualizer
         {
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
+                e.Handled = true;
                 formEventHandler.HandleFindKElement();
             }
         }
