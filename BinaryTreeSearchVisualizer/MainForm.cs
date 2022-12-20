@@ -53,7 +53,7 @@ namespace BinaryTreeSearchVisualizer
         {
             DrawBox.DrawTree(binaryTree, e.Graphics);
         }
-
+         
         private void insertTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Return))

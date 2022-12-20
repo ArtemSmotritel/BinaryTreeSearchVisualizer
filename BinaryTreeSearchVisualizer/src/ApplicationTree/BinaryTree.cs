@@ -187,7 +187,7 @@
                 return;
             }
             var nodeInfo = NodeInfo.Create(node, parentNodeInfo);
-            list.Add(nodeInfo); 
+            list.Add(nodeInfo);
             AddNodeInfosToList(node.leftChild, nodeInfo, list);
             AddNodeInfosToList(node.rightChild, nodeInfo, list);
         }

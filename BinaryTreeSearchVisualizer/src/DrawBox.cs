@@ -5,7 +5,7 @@ namespace BinaryTreeSearchVisualizer.src
 {
     internal class DrawBox : PictureBox
     {
-        public DrawBox() 
+        public DrawBox()
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }

@@ -71,6 +71,8 @@ namespace BinaryTreeSearchVisualizer.src
             try
             {
                 ValidateInput(findTextBox);
+                var value = long.Parse(findTextBox.Text);
+                drawBox.DrawPath(binaryTree, value, drawBox.CreateGraphics());
             }
             catch (Exception)
             {
