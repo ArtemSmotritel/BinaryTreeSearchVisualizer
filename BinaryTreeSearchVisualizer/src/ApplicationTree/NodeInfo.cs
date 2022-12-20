@@ -2,6 +2,21 @@
 {
     internal class NodeInfo
     {
+        public static NodeInfo Create(TreeNode node, NodeInfo? parentInfo)
+        {
+            var result = new NodeInfo(node, parentInfo);
+            if (node.rightChild != null)
+            {
+                result.RightChildNodeInfo = new NodeInfo(node.rightChild, result);
+            }
+            if (node.leftChild != null)
+            {
+                result.LeftChildNodeInfo = new NodeInfo(node.leftChild, result);
+            }
+            result.DetermineCoordinates();
+            return result;
+        }
+        
         private const int NodeOffset = 70;
 
         public NodeInfo(TreeNode node, NodeInfo? parentNodeInfo) 
