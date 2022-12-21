@@ -38,8 +38,7 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(insertTextBox);
                 var value = long.Parse(insertTextBox.Text);
-                drawBox.HideLastHighlight();
-                drawBox.DrawPath(binaryTree, value, Color.Green, Color.Green);
+                drawBox.DrawInsertPath(binaryTree, value);
                 binaryTree.Insert(value);
                 TriggerTreePaint();
             }
@@ -57,10 +56,8 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(removeTextBox);
                 var value = long.Parse(removeTextBox.Text);
-                drawBox.HideLastHighlight();
-                drawBox.DrawPath(binaryTree, value, Color.Red, Color.Green);
+                drawBox.DrawRemovePath(binaryTree, value);
                 binaryTree.Remove(value);
-                drawBox.lastHighlightedNode= null;
                 TriggerTreePaint();
             }
             catch (Exception)
@@ -77,8 +74,7 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(findTextBox);
                 var value = long.Parse(findTextBox.Text);
-                drawBox.HideLastHighlight();
-                drawBox.DrawPath(binaryTree, value, Color.Green, Color.Red);
+                drawBox.DrawFindPath(binaryTree, value);
             }
             catch (Exception)
             {
@@ -93,6 +89,8 @@ namespace BinaryTreeSearchVisualizer.src
             try
             {
                 ValidateInput(findKElementTextBox);
+                var value = long.Parse(findKElementTextBox.Text);
+                drawBox.DrawFindKthElementPath(binaryTree, value);
             }
             catch (Exception)
             {
