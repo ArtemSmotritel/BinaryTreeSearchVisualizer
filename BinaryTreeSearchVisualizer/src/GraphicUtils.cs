@@ -19,8 +19,12 @@ namespace BinaryTreeSearchVisualizer.src
             return SystemFonts.DefaultFont;
         }
 
-        public static void HighlightNode(NodeInfo nodeInfo, Graphics graphics, Color color)
+        public static void HighlightNode(NodeInfo? nodeInfo, Graphics graphics, Color color)
         {
+            if (nodeInfo == null)
+            {
+                return;
+            }
             int xTopLeft = nodeInfo.CenterX - nodeInfo.Radius;
             int yTopLeft = nodeInfo.CenterY - nodeInfo.Radius;
             int diameter = nodeInfo.Radius * 2;
@@ -34,8 +38,12 @@ namespace BinaryTreeSearchVisualizer.src
             DrawSize(nodeInfo, graphics);
         }
 
-        public static void DrawNodeCircle(NodeInfo nodeInfo, Graphics graphics)
+        public static void DrawNodeCircle(NodeInfo? nodeInfo, Graphics graphics)
         {
+            if (nodeInfo == null)
+            {
+                return;
+            }
             int xTopLeft = nodeInfo.CenterX - nodeInfo.Radius;
             int yTopLeft = nodeInfo.CenterY - nodeInfo.Radius;
             int diameter = nodeInfo.Radius * 2;
