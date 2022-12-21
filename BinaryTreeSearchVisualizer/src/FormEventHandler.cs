@@ -10,7 +10,7 @@ namespace BinaryTreeSearchVisualizer.src
         private TextBox findTextBox;
         private TextBox findKElementTextBox;
         private Label messageLabel;
-        private BinaryTree binaryTree;
+        public BinaryTree binaryTree;
 
         public FormEventHandler(
             DrawBox drawBox,
@@ -38,6 +38,8 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(insertTextBox);
                 var value = long.Parse(insertTextBox.Text);
+                drawBox.HideLastHighlight();
+                drawBox.DrawPath(binaryTree, value, Color.Green, Color.Green);
                 binaryTree.Insert(value);
                 TriggerTreePaint();
             }
@@ -55,7 +57,10 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(removeTextBox);
                 var value = long.Parse(removeTextBox.Text);
+                drawBox.HideLastHighlight();
+                drawBox.DrawPath(binaryTree, value, Color.Red, Color.Green);
                 binaryTree.Remove(value);
+                drawBox.lastHighlightedNode= null;
                 TriggerTreePaint();
             }
             catch (Exception)
@@ -72,7 +77,8 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(findTextBox);
                 var value = long.Parse(findTextBox.Text);
-                drawBox.DrawPath(binaryTree, value, drawBox.CreateGraphics());
+                drawBox.HideLastHighlight();
+                drawBox.DrawPath(binaryTree, value, Color.Green, Color.Red);
             }
             catch (Exception)
             {

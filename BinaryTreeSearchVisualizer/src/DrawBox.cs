@@ -5,8 +5,11 @@ namespace BinaryTreeSearchVisualizer.src
 {
     internal class DrawBox : PictureBox
     {
+        private Graphics? pathGraphics;
+        public NodeInfo? lastHighlightedNode;
         public DrawBox()
         {
+            pathGraphics = null;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
@@ -24,58 +27,74 @@ namespace BinaryTreeSearchVisualizer.src
             }
         }
 
-        public void DrawPath(BinaryTree binaryTree, long value, Graphics graphics)
+        public void HideLastHighlight()
+        {
+            if (lastHighlightedNode != null)
+            {
+                GraphicUtils.HighlightNode(lastHighlightedNode, pathGraphics!, Color.Black);
+                lastHighlightedNode = null;
+            }
+        }
+
+        public void DrawPath(BinaryTree binaryTree, long value, Color findColor, Color missingColor)
         {
             if (binaryTree == null || binaryTree.root == null)
             {
                 return;
             }
-            var g = CreateGraphics();
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            RecursiveDrawPath(binaryTree.root, null, value, g);
+            pathGraphics = CreateGraphics();
+            pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;            
+            RecursiveDrawPath(binaryTree.root, null, value, findColor, missingColor);
         }
 
-        public void RecursiveDrawPath(ApplicationTree.TreeNode? node, NodeInfo? parentInfo, long value, Graphics graphics)
+        private void RecursiveDrawPath(ApplicationTree.TreeNode? node, NodeInfo? parentInfo, 
+            long value, Color findColor, Color missingColor)
         {
             if (node == null)
             {
                 return;
             }
 
-            Thread.Sleep(1000);
-            if (parentInfo != null)
+            if (lastHighlightedNode != null)
             {
-                GraphicUtils.HighlightNode(parentInfo, graphics, Color.Black);
+                Thread.Sleep(600);
+                GraphicUtils.HighlightNode(lastHighlightedNode, pathGraphics!, Color.Black);
             }
             var nodeInfo = NodeInfo.Create(node, parentInfo);
+            lastHighlightedNode = nodeInfo;
 
-            if (value > nodeInfo.Node.Value)
+            if (value > node.Value)
             {
                 if (nodeInfo.RightChildNodeInfo == null)
                 {
-                    GraphicUtils.HighlightNode(nodeInfo, graphics, Color.DarkRed);
+                    GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, missingColor);
+                    lastHighlightedNode = null;
+                    Thread.Sleep(600);
                 }
                 else
                 {
-                    GraphicUtils.HighlightNode(nodeInfo, graphics, Color.Blue);
-                    RecursiveDrawPath(node.rightChild, nodeInfo, value, graphics);
+                    GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, Color.Blue);
+                    RecursiveDrawPath(node.rightChild, nodeInfo, value, findColor, missingColor);
                 }
             }
-            else if (value < nodeInfo.Node.Value)
+            else if (value < node.Value)
             {
                 if (nodeInfo.LeftChildNodeInfo == null)
                 {
-                    GraphicUtils.HighlightNode(nodeInfo, graphics, Color.DarkRed);
+                    GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, missingColor);
+                    lastHighlightedNode = null;
+                    Thread.Sleep(600);
                 }
                 else
                 {
-                    GraphicUtils.HighlightNode(nodeInfo, graphics, Color.Blue);
-                    RecursiveDrawPath(node.leftChild, nodeInfo, value, graphics);
+                    GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, Color.Blue);
+                    RecursiveDrawPath(node.leftChild, nodeInfo, value, findColor, missingColor);
                 }
             }
             else
             {
-                GraphicUtils.HighlightNode(nodeInfo, graphics, Color.Green);
+                GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, findColor);
+                Thread.Sleep(600);
             }
         }
 
