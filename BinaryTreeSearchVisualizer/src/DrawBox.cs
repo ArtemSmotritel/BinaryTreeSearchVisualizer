@@ -13,8 +13,9 @@ namespace BinaryTreeSearchVisualizer.src
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-        public static void DrawTree(BinaryTree binaryTree, Graphics graphics)
+        public void DrawTree(BinaryTree binaryTree, Graphics graphics)
         {
+            lastHighlightedNode = null;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             var nodeInfos = binaryTree.GetNodesInfo();
             foreach (var nodeInfo in nodeInfos)

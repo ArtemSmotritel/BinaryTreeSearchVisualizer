@@ -47,12 +47,13 @@ namespace BinaryTreeSearchVisualizer
         {
             binaryTree = new BinaryTree();
             formEventHandler.binaryTree = binaryTree;
+            drawBox.lastHighlightedNode = null;
             formEventHandler.TriggerTreePaint();
         }
 
         private void drawBox_Paint(object sender, PaintEventArgs e)
         {
-            DrawBox.DrawTree(binaryTree, e.Graphics);
+            drawBox.DrawTree(binaryTree, e.Graphics);
         }
          
         private void insertTextBox_KeyPress(object sender, KeyPressEventArgs e)
