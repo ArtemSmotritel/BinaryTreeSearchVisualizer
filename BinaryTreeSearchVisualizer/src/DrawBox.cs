@@ -42,20 +42,6 @@ namespace BinaryTreeSearchVisualizer.src
             }
         }
 
-        public void DrawFindPath(BinaryTree binaryTree, long value)
-        {
-            HideLastHighlight();
-            if (binaryTree == null || binaryTree.root == null)
-            {
-                return;
-            }
-            using (pathGraphics = CreateGraphics())
-            {
-                pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(binaryTree.root, value, null, Color.Green, Color.Red);
-            }
-        }
-
         public void DrawRemovePath(BinaryTree binaryTree, long value)
         {
             HideLastHighlight();
@@ -84,9 +70,65 @@ namespace BinaryTreeSearchVisualizer.src
             }
         }
 
-        public void DrawFindKthElementPath(BinaryTree binaryTree, long value)
+        public void DrawFindPath(BinaryTree binaryTree, long value)
         {
+            HideLastHighlight();
+            if (binaryTree == null || binaryTree.root == null)
+            {
+                return;
+            }
+            using (pathGraphics = CreateGraphics())
+            {
+                pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
+                DrawPath(binaryTree.root, value, null, Color.Green, Color.Red);
+            }
+        }
 
+        public void DrawFindKthElementPath(BinaryTree binaryTree, long index)
+        {
+            HideLastHighlight();
+            if (binaryTree == null || binaryTree.root == null)
+            {
+                return;
+            }
+            if (index > binaryTree.root.Size || index < 1)
+            {
+                throw new Exception("the tree is not big enough");
+            }
+            using (pathGraphics = CreateGraphics())
+            {
+                pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
+                DrawFindKthElementPath(binaryTree.root, index, null, Color.Green);
+            }
+        }
+
+        private void DrawFindKthElementPath(ApplicationTree.TreeNode? node, long index, NodeInfo? parentNodeInfo, Color findColor)
+        {
+            Thread.Sleep(600);
+            GraphicUtils.HighlightNode(parentNodeInfo, pathGraphics!, Color.Black);
+
+            var nodeInfo = NodeInfo.Create(node, parentNodeInfo);
+            lastHighlightedNode = nodeInfo;
+
+            var nodeCountInLeftChild = nodeInfo.LeftChildNodeInfo?.Node.Size ?? 0;
+
+            if (index == nodeCountInLeftChild + 1)
+            {
+                GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, findColor);
+                Thread.Sleep(600);
+                return;
+            }
+
+            GraphicUtils.HighlightNode(nodeInfo, pathGraphics, traversalColor);
+            if (index <= nodeCountInLeftChild)
+            {
+                DrawFindKthElementPath(node.leftChild, index, nodeInfo, findColor);
+            }
+            else
+            {
+                var newIndex = index - (nodeCountInLeftChild + 1);
+                DrawFindKthElementPath(node.rightChild, newIndex, nodeInfo, findColor);
+            }
         }
 
         private void DrawPath(ApplicationTree.TreeNode? node, long value, NodeInfo? parentNodeInfo, Color findColor, Color missingColor)

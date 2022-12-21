@@ -94,7 +94,7 @@ namespace BinaryTreeSearchVisualizer.src
             }
             catch (Exception)
             {
-
+                messageLabel.Text = "The tree is too small";
             }
             RefreshTextBox(findKElementTextBox);
         }
