@@ -42,9 +42,9 @@ namespace BinaryTreeSearchVisualizer.src
                 binaryTree.Insert(value);
                 TriggerTreePaint();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                HandleException(e, insertTextBox);
             }
             RefreshTextBox(insertTextBox);
         }
@@ -60,9 +60,9 @@ namespace BinaryTreeSearchVisualizer.src
                 binaryTree.Remove(value);
                 TriggerTreePaint();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                HandleException(e, removeTextBox);
             }
             RefreshTextBox(removeTextBox);
         }
@@ -76,9 +76,9 @@ namespace BinaryTreeSearchVisualizer.src
                 var value = long.Parse(findTextBox.Text);
                 drawBox.DrawFindPath(binaryTree, value);
             }
-            catch (Exception)
-            {
-
+            catch (Exception e) 
+            { 
+                HandleException(e, findTextBox); 
             }
             RefreshTextBox(findTextBox);
         }
@@ -92,9 +92,9 @@ namespace BinaryTreeSearchVisualizer.src
                 var value = long.Parse(findKElementTextBox.Text);
                 drawBox.DrawFindKthElementPath(binaryTree, value);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                messageLabel.Text = "The tree is too small";
+                HandleException(e, findKElementTextBox);
             }
             RefreshTextBox(findKElementTextBox);
         }
@@ -116,20 +116,20 @@ namespace BinaryTreeSearchVisualizer.src
         {
             if (string.IsNullOrEmpty(textBox.Text.Trim()))
             {
-                messageLabel.Text = "Input cannot be empty";
-                messageLabel.BackColor = Color.IndianRed;
-                textBox.BackColor = Color.IndianRed;
-                messageLabel.Show();
-                throw new Exception("");
+                throw new Exception($"The {textBox.Name.Split('T')[0]} input cannot be empty");
             }
             if (!long.TryParse(textBox.Text.Trim(), out long result))
             {
-                messageLabel.Text = "Input cannot contain non-numeric symbols";
-                messageLabel.BackColor = Color.IndianRed;
-                textBox.BackColor = Color.IndianRed;
-                messageLabel.Show();
-                throw new Exception("");
+                throw new Exception($"The {textBox.Name.Split('T')[0]} input cannot containt non-digit characters");
             }
+        }
+        private void HandleException(Exception exception, TextBox textBox)
+        {
+            var message = exception.Message;
+            messageLabel.Text = message;
+            messageLabel.BackColor = Color.IndianRed;
+            textBox.BackColor = Color.IndianRed;
+            messageLabel.Show();
         }
     }
 }
