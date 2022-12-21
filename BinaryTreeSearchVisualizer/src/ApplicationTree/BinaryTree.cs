@@ -27,11 +27,6 @@
             }
         }
 
-        public bool IsPresent(long value)
-        {
-            return IsPresenetIn(value, root);
-        }
-
         public void Remove(long value)
         {
             var backupRoot = root;
@@ -43,11 +38,6 @@
             {
                 root = backupRoot;
             }
-        }
-
-        public TreeNode? FindAt(int index)
-        {
-            return FindAt(index, root);
         }
 
         public List<NodeInfo> GetNodesInfo()
@@ -83,23 +73,6 @@
                 throw new Exception();
             }
             return root;
-        }
-
-        private bool IsPresenetIn(long value, TreeNode? root)
-        {
-            if (root == null)
-            {
-                return false;
-            }
-            if (value > root.Value)
-            {
-                return IsPresenetIn(value, root.rightChild);
-            }
-            if (value < root.Value)
-            {
-                return IsPresenetIn(value, root.leftChild);
-            }
-            return true;
         }
 
         private TreeNode? RemoveFrom(long value, TreeNode? root)
@@ -147,23 +120,6 @@
                 root = root.leftChild;
             }
             return minValue;
-        }
-
-        private TreeNode? FindAt(int index, TreeNode? root)
-        {
-            if (root == null || index > root.Size)
-            {
-                return null;
-            }
-            if (index == root.Size)
-            {
-                return root;
-            }
-            if (index < root.leftChild.Size)
-            {
-                return FindAt(index, root.leftChild);
-            }
-            return FindAt(index - root.leftChild.Size, root.rightChild);
         }
 
         private void AddNodeInfosToList(TreeNode? node, NodeInfo? parentNodeInfo, List<NodeInfo> list) 
