@@ -50,18 +50,15 @@
             return FindAt(index, root);
         }
 
-        public int Count()
-        {
-            return CountNodes(root);
-        }
-
-        private int CountNodes(TreeNode? root)
+        public List<NodeInfo> GetNodesInfo()
         {
             if (root == null)
             {
-                return 0;
+                return Enumerable.Empty<NodeInfo>().ToList();
             }
-            return 1 + CountNodes(root.leftChild) + CountNodes(root.rightChild);
+            var result = new List<NodeInfo>(root.Size);
+            AddNodeInfosToList(root, null, result);
+            return result;
         }
 
         private TreeNode? InsertTo(long  value, TreeNode? root)
@@ -167,17 +164,6 @@
                 return FindAt(index, root.leftChild);
             }
             return FindAt(index - root.leftChild.Size, root.rightChild);
-        }
-
-        public List<NodeInfo> GetNodesInfo()
-        {
-            if (root == null)
-            {
-                return Enumerable.Empty<NodeInfo>().ToList();
-            }
-            var result = new List<NodeInfo>(root.Size);
-            AddNodeInfosToList(root, null, result);
-            return result;
         }
 
         private void AddNodeInfosToList(TreeNode? node, NodeInfo? parentNodeInfo, List<NodeInfo> list) 
