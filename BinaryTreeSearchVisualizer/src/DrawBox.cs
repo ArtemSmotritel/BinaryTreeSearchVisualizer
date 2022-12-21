@@ -93,7 +93,8 @@ namespace BinaryTreeSearchVisualizer.src
             }
             if (index > binaryTree.root.Size || index < 1)
             {
-                throw new Exception("the tree is not big enough");
+                var size = binaryTree.root.Size;
+                throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. You cannot possibly find the {index} smallest");
             }
             using (pathGraphics = CreateGraphics())
             {
