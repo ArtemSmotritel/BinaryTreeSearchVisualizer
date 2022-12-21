@@ -46,6 +46,7 @@ namespace BinaryTreeSearchVisualizer
         private void resetButton_Click(object sender, EventArgs e)
         {
             binaryTree = new BinaryTree();
+            formEventHandler.binaryTree = binaryTree;
             formEventHandler.TriggerTreePaint();
         }
 
