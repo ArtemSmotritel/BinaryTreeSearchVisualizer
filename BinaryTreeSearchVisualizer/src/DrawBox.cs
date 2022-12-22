@@ -91,10 +91,14 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 return;
             }
-            if (index > binaryTree.root.Size || index < 1)
+            if (index > binaryTree.root.Size)
             {
                 var size = binaryTree.root.Size;
-                throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. You cannot possibly find the {index} smallest");
+                throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. You cannot possibly find the {index} smallest element");
+            }
+            if (index < 1)
+            {
+                throw new Exception($"You cannot possibly find the {index} smallest element");
             }
             using (pathGraphics = CreateGraphics())
             {
