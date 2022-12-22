@@ -127,12 +127,12 @@ namespace BinaryTreeSearchVisualizer.src
             GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, traversalColor);
             if (index <= nodeCountInLeftChild)
             {
-                DrawFindKthElementPath(node.leftChild, index, nodeInfo, findColor);
+                DrawFindKthElementPath(node!.leftChild, index, nodeInfo, findColor);
             }
             else
             {
                 var newIndex = index - (nodeCountInLeftChild + 1);
-                DrawFindKthElementPath(node.rightChild, newIndex, nodeInfo, findColor);
+                DrawFindKthElementPath(node!.rightChild, newIndex, nodeInfo, findColor);
             }
         }
 
