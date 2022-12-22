@@ -1,4 +1,5 @@
 ﻿using BinaryTreeSearchVisualizer.src.ApplicationTree;
+using BinaryTreeSearchVisualizer.src.Components;
 
 namespace BinaryTreeSearchVisualizer.src
 {

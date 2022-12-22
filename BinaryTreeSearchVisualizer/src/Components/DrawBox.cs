@@ -1,7 +1,7 @@
 ﻿using BinaryTreeSearchVisualizer.src.ApplicationTree;
 using System.Drawing.Drawing2D;
 
-namespace BinaryTreeSearchVisualizer.src
+namespace BinaryTreeSearchVisualizer.src.Components
 {
     internal class DrawBox : PictureBox
     {

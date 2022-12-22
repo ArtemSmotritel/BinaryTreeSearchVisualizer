@@ -1,4 +1,4 @@
-﻿using BinaryTreeSearchVisualizer.src;
+﻿using BinaryTreeSearchVisualizer.src.Components;
 
 namespace BinaryTreeSearchVisualizer
 {
@@ -41,7 +41,7 @@ namespace BinaryTreeSearchVisualizer
             this.findKElementButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.drawBox = new BinaryTreeSearchVisualizer.src.DrawBox();
+            this.drawBox = new BinaryTreeSearchVisualizer.src.Components.DrawBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawBox)).BeginInit();
             this.SuspendLayout();
             // 
