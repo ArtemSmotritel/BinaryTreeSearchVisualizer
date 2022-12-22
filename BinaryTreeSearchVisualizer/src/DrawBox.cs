@@ -5,7 +5,7 @@ namespace BinaryTreeSearchVisualizer.src
 {
     internal class DrawBox : PictureBox
     {
-        private static Color traversalColor = Color.Blue;
+        private static readonly Color traversalColor = Color.Blue;
 
         private Graphics? pathGraphics;
         public NodeInfo? lastHighlightedNode;
@@ -112,7 +112,7 @@ namespace BinaryTreeSearchVisualizer.src
             Thread.Sleep(600);
             GraphicUtils.HighlightNode(parentNodeInfo, pathGraphics!, Color.Black);
 
-            var nodeInfo = NodeInfo.Create(node, parentNodeInfo);
+            var nodeInfo = NodeInfo.Create(node!, parentNodeInfo);
             lastHighlightedNode = nodeInfo;
 
             var nodeCountInLeftChild = nodeInfo.LeftChildNodeInfo?.Node.Size ?? 0;
@@ -124,7 +124,7 @@ namespace BinaryTreeSearchVisualizer.src
                 return;
             }
 
-            GraphicUtils.HighlightNode(nodeInfo, pathGraphics, traversalColor);
+            GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, traversalColor);
             if (index <= nodeCountInLeftChild)
             {
                 DrawFindKthElementPath(node.leftChild, index, nodeInfo, findColor);
