@@ -42,7 +42,9 @@ namespace BinaryTreeSearchVisualizer
             this.resetButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
             this.drawBox = new BinaryTreeSearchVisualizer.src.Components.DrawBox();
+            this.panelForDrawBox = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.drawBox)).BeginInit();
+            this.panelForDrawBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // insertButton
@@ -145,13 +147,24 @@ namespace BinaryTreeSearchVisualizer
             // drawBox
             // 
             this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
-            this.drawBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.drawBox.Location = new System.Drawing.Point(12, 55);
+            this.drawBox.Location = new System.Drawing.Point(260, 3);
             this.drawBox.Name = "drawBox";
-            this.drawBox.Size = new System.Drawing.Size(1238, 586);
+            this.drawBox.Size = new System.Drawing.Size(500, 500);
+            this.drawBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.drawBox.TabIndex = 9;
             this.drawBox.TabStop = false;
             this.drawBox.Paint += new System.Windows.Forms.PaintEventHandler(this.drawBox_Paint);
+            // 
+            // panelForDrawBox
+            // 
+            this.panelForDrawBox.AutoScroll = true;
+            this.panelForDrawBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.panelForDrawBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelForDrawBox.Controls.Add(this.drawBox);
+            this.panelForDrawBox.Location = new System.Drawing.Point(12, 46);
+            this.panelForDrawBox.Name = "panelForDrawBox";
+            this.panelForDrawBox.Size = new System.Drawing.Size(1238, 595);
+            this.panelForDrawBox.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -159,8 +172,8 @@ namespace BinaryTreeSearchVisualizer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.panelForDrawBox);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.drawBox);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.findKElementTextBox);
             this.Controls.Add(this.findKElementButton);
@@ -175,6 +188,8 @@ namespace BinaryTreeSearchVisualizer
             this.Text = "Binary Tree Search Visualizer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.drawBox)).EndInit();
+            this.panelForDrawBox.ResumeLayout(false);
+            this.panelForDrawBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +208,6 @@ namespace BinaryTreeSearchVisualizer
         private Button findKElementButton;
         private Button resetButton;
         private Label messageLabel;
+        private Panel panelForDrawBox;
     }
 }
