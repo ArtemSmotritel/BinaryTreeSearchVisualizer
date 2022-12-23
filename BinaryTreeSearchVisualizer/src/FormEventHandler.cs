@@ -101,19 +101,29 @@ namespace BinaryTreeSearchVisualizer.src
         }
 
         public void TriggerTreePaint() => drawBox.Invalidate(true);
+
         private void ResetAndHideMessageLabel()
         {
             messageLabel.Text = "";
             messageLabel.BackColor = Color.White;
             messageLabel.Hide();
         }
+        private void HandleException(Exception exception, TextBox textBox)
+        {
+            var message = exception.Message;
+            messageLabel.Text = message;
+            messageLabel.BackColor = Color.IndianRed;
+            textBox.BackColor = Color.IndianRed;
+            messageLabel.Show();
+        }
+
         private static void RefreshTextBox(TextBox textBox)
         {
             textBox.Text = "";
             textBox.BackColor = Color.White;
             textBox.Focus();
         }
-        private void ValidateInput(TextBox textBox)
+        private static void ValidateInput(TextBox textBox)
         {
             if (string.IsNullOrEmpty(textBox.Text.Trim()))
             {
@@ -123,14 +133,6 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 throw new Exception($"The {textBox.Name.Split('T')[0]} input cannot containt non-digit characters");
             }
-        }
-        private void HandleException(Exception exception, TextBox textBox)
-        {
-            var message = exception.Message;
-            messageLabel.Text = message;
-            messageLabel.BackColor = Color.IndianRed;
-            textBox.BackColor = Color.IndianRed;
-            messageLabel.Show();
         }
     }
 }
