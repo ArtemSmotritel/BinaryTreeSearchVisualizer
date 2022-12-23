@@ -9,7 +9,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
 
         private Graphics? pathGraphics;
         public NodeInfo? lastHighlightedNode;
-        public DrawBox()
+        public DrawBox() : base()
         {
             pathGraphics = null;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -166,11 +166,6 @@ namespace BinaryTreeSearchVisualizer.src.Components
             {
                 DrawPath(node.leftChild, value, nodeInfo, findColor, missingColor);
             }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
         }
     }
 }
