@@ -1,4 +1,6 @@
-﻿namespace BinaryTreeSearchVisualizer.src.ApplicationTree
+﻿using BinaryTreeSearchVisualizer.properties;
+
+namespace BinaryTreeSearchVisualizer.src.ApplicationTree
 {
     internal class NodeInfo
     {
@@ -17,7 +19,7 @@
             return result;
         }
         
-        private const int NodeOffset = 70;
+        private int NodeOffset = VisualizerProperty.nodeOffset;
 
         public NodeInfo(TreeNode node, NodeInfo? parentNodeInfo) 
         {
@@ -37,14 +39,14 @@
         public bool IsRoot {  get; private set; }
         public int CenterX { get; private set; }
         public int CenterY { get; private set; }
-        public int Radius { get { return 30; } }
+        public int Radius { get { return VisualizerProperty.nodeRadius; } }
 
         public void DetermineCoordinates()
         {
             if (IsRoot)
             {
-                CenterX = 650;
-                CenterY = 150;
+                CenterX = VisualizerProperty.rootCenter.X;
+                CenterY = VisualizerProperty.rootCenter.Y;
             }
             else if (IsLeftChild)
             {
@@ -57,7 +59,7 @@
                 var nodeCountOffset = LeftChildNodeInfo?.Node?.Size ?? 0;
                 CenterX = ParentNodeInfo!.CenterX + (NodeOffset * (nodeCountOffset + 1));
                 CenterY = ParentNodeInfo.CenterY + NodeOffset;
-            }
+            } 
         }
 
         private void DetermineWhatChild()
@@ -80,7 +82,7 @@
             {
                 IsLeftChild = true;
             }
-        }
+        } 
 
         public override string ToString()
         {
