@@ -2,8 +2,8 @@
 {
     internal static class VisualizerProperty
     {
-        public static Point rootCenter = new Point(2500, 50);
-        public static Size drawBoxSize = new Size(5000, 3000);
+        public static Point rootCenter = new Point(1500, 50);
+        public static Size drawBoxSize = new Size(3000, 2000);
 
         public static int timeGap = 600;
 

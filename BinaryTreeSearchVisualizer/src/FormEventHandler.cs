@@ -1,4 +1,5 @@
-﻿using BinaryTreeSearchVisualizer.src.ApplicationTree;
+﻿using BinaryTreeSearchVisualizer.properties;
+using BinaryTreeSearchVisualizer.src.ApplicationTree;
 using BinaryTreeSearchVisualizer.src.Components;
 
 namespace BinaryTreeSearchVisualizer.src
@@ -34,7 +35,7 @@ namespace BinaryTreeSearchVisualizer.src
 
         public static void ScrollCenter(Panel p)
         {
-            using (Control c = new Control() { Parent = p, Height = 0, Left = 3000 })
+            using (Control c = new Control() { Parent = p, Height = 0, Left = VisualizerProperty.rootCenter.X + 505 })
             {
                 p.ScrollControlIntoView(c);
             }
