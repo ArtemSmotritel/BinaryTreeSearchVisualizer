@@ -32,6 +32,14 @@ namespace BinaryTreeSearchVisualizer.src
             this.binaryTree = binaryTree;
         }
 
+        public static void ScrollCenter(Panel p)
+        {
+            using (Control c = new Control() { Parent = p, Height = 0, Left = 3000 })
+            {
+                p.ScrollControlIntoView(c);
+            }
+        }
+
         public void HandleInsert()
         {
             ResetAndHideMessageLabel();
