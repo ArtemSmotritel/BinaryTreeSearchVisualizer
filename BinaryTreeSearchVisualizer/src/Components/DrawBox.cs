@@ -1,4 +1,5 @@
-﻿using BinaryTreeSearchVisualizer.src.ApplicationTree;
+﻿using BinaryTreeSearchVisualizer.properties;
+using BinaryTreeSearchVisualizer.src.ApplicationTree;
 using System.Drawing.Drawing2D;
 
 namespace BinaryTreeSearchVisualizer.src.Components
@@ -138,7 +139,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
 
         private void DrawPath(ApplicationTree.TreeNode? node, long value, NodeInfo? parentNodeInfo, Color findColor, Color missingColor)
         {
-            Thread.Sleep(600);
+            Thread.Sleep(VisualizerProperty.timeGap);
             if (node == null)
             {
                 lastHighlightedNode = parentNodeInfo;
@@ -153,7 +154,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             if (value == node.Value)
             {
                 GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, findColor);
-                Thread.Sleep(600);
+                Thread.Sleep(VisualizerProperty.timeGap);
                 return;
             }
 
