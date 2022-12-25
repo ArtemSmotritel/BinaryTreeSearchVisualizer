@@ -1,4 +1,5 @@
-﻿using BinaryTreeSearchVisualizer.src.Components;
+﻿using BinaryTreeSearchVisualizer.properties;
+using BinaryTreeSearchVisualizer.src.Components;
 
 namespace BinaryTreeSearchVisualizer
 {
@@ -151,7 +152,7 @@ namespace BinaryTreeSearchVisualizer
             this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
             this.drawBox.Location = new System.Drawing.Point(3, 3);
             this.drawBox.Name = "drawBox";
-            this.drawBox.Size = new System.Drawing.Size(1000, 500);
+            this.drawBox.Size = new System.Drawing.Size(VisualizerProperty.drawBoxSize.Width, VisualizerProperty.drawBoxSize.Height);
             this.drawBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.drawBox.TabIndex = 9;
             this.drawBox.TabStop = false;
@@ -163,13 +164,12 @@ namespace BinaryTreeSearchVisualizer
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelForDrawBox.AutoScroll = true;
-            this.panelForDrawBox.AutoSize = true;
             this.panelForDrawBox.BackColor = System.Drawing.SystemColors.Menu;
             this.panelForDrawBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelForDrawBox.Controls.Add(this.drawBox);
             this.panelForDrawBox.Location = new System.Drawing.Point(12, 46);
             this.panelForDrawBox.Name = "panelForDrawBox";
-            this.panelForDrawBox.Size = new System.Drawing.Size(1010, 510);
+            this.panelForDrawBox.Size = new System.Drawing.Size(1010, 518);
             this.panelForDrawBox.TabIndex = 11;
             // 
             // MainForm

@@ -16,6 +16,7 @@ namespace BinaryTreeSearchVisualizer
                 drawBox, insertTextBox, removeTextBox, findTextBox,
                 findKElementTextBox, messageLabel, binaryTree
             );
+            FormEventHandler.ScrollCenter(panelForDrawBox);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace BinaryTreeSearchVisualizer
             formEventHandler.binaryTree = binaryTree;
             drawBox.lastHighlightedNode = null;
             formEventHandler.TriggerTreePaint();
+            FormEventHandler.ScrollCenter(panelForDrawBox);
         }
 
         private void drawBox_Paint(object sender, PaintEventArgs e)
