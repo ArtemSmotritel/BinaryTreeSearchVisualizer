@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BinaryTreeSearchVisualizer.src.GraphicUtils">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAQAABAAAAAAAAAAAACAAAAAAAAAAMARAQAAAAAAAA=</HashCode>
+      <FileName>src\GraphicUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.MainForm">
+    <Position X="0.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIFYAGADAAkCQAAACAEAACQEQACFwAAgAAAQAAAAQ=</HashCode>
+      <FileName>src\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.src.FormEventHandler">
+    <Position X="3.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAIACABAAEgAACAAAAAAAAACQCAgAAQggAAACAAg=</HashCode>
+      <FileName>src\FormEventHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.src.Components.DrawBox">
+    <Position X="9" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABCAIAAABAAAQCAAAAAAgAAQAAAAAAAQAQA=</HashCode>
+      <FileName>src\Components\DrawBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.src.ApplicationTree.BinarySearchTree">
+    <Position X="9" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAAAAAgAgAAgBAAAAAAAAAAAAAAAAAAAgAE=</HashCode>
+      <FileName>src\ApplicationTree\BinarySearchTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.src.ApplicationTree.NodeInfo">
+    <Position X="11.75" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAIAAAEBAAAEAEEGACAAAAAAAAAAEAAAUAAAAFAAAA=</HashCode>
+      <FileName>src\ApplicationTree\NodeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.src.ApplicationTree.TreeNode">
+    <Position X="7.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgAAEAIAAQAAABAAAACCAAAAgAAAAAAA=</HashCode>
+      <FileName>src\ApplicationTree\TreeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryTreeSearchVisualizer.properties.VisualizerProperty">
+    <Position X="1" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAhAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>properties\VisualizerProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
