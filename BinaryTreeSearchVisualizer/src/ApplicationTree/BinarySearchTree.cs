@@ -1,42 +1,38 @@
 ﻿namespace BinaryTreeSearchVisualizer.src.ApplicationTree
 {
-    internal class BinaryTree
+    internal class BinarySearchTree
     {
         public TreeNode? root;
 
-        public BinaryTree()
+        public BinarySearchTree()
         {
             root = null;
         }
 
-        public BinaryTree(long value)
+        public BinarySearchTree(long value)
         {
             root = new TreeNode(value);
         }
 
         public void Insert(long value)
         {
-            var backupRoot = root;
             try
             {
                 root = InsertTo(value, root);
             }
             catch (Exception)
             {
-                root = backupRoot;
             }
         }
 
         public void Remove(long value)
         {
-            var backupRoot = root;
             try
             {
                 root = RemoveFrom(value, root);
             }
             catch (Exception)
             {
-                root = backupRoot;
             }
         }
 

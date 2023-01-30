@@ -16,11 +16,11 @@ namespace BinaryTreeSearchVisualizer.src.Components
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-        public void DrawTree(BinaryTree binaryTree, Graphics graphics)
+        public void DrawTree(BinarySearchTree tree, Graphics graphics)
         {
             lastHighlightedNode = null;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            var nodeInfos = binaryTree.GetNodesInfo();
+            var nodeInfos = tree.GetNodesInfo();
             foreach (var nodeInfo in nodeInfos)
             {
                 GraphicUtils.DrawConnectionToParent(nodeInfo, graphics);
@@ -43,58 +43,58 @@ namespace BinaryTreeSearchVisualizer.src.Components
             }
         }
 
-        public void DrawRemovePath(BinaryTree binaryTree, long value)
+        public void DrawRemovePath(BinarySearchTree tree, long value)
         {
             HideLastHighlight();
-            if (binaryTree == null || binaryTree.root == null)
+            if (tree == null || tree.root == null)
             {
                 return;
             }
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(binaryTree.root, value, null, Color.Red, Color.Blue);
+                DrawPath(tree.root, value, null, Color.Red, Color.Blue);
             }
         }
 
-        public void DrawInsertPath(BinaryTree binaryTree, long value)
+        public void DrawInsertPath(BinarySearchTree tree, long value)
         {
             HideLastHighlight();
-            if (binaryTree == null || binaryTree.root == null)
+            if (tree == null || tree.root == null)
             {
                 return;
             }
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(binaryTree.root, value, null, Color.Green, Color.Blue);
+                DrawPath(tree.root, value, null, Color.Green, Color.Blue);
             }
         }
 
-        public void DrawFindPath(BinaryTree binaryTree, long value)
+        public void DrawFindPath(BinarySearchTree tree, long value)
         {
             HideLastHighlight();
-            if (binaryTree == null || binaryTree.root == null)
+            if (tree == null || tree.root == null)
             {
                 return;
             }
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(binaryTree.root, value, null, Color.Green, Color.Red);
+                DrawPath(tree.root, value, null, Color.Green, Color.Red);
             }
         }
 
-        public void DrawFindKthElementPath(BinaryTree binaryTree, long index)
+        public void DrawFindKthElementPath(BinarySearchTree tree, long index)
         {
             HideLastHighlight();
-            if (binaryTree == null || binaryTree.root == null)
+            if (tree == null || tree.root == null)
             {
                 return;
             }
-            if (index > binaryTree.root.Size)
+            if (index > tree.root.Size)
             {
-                var size = binaryTree.root.Size;
+                var size = tree.root.Size;
                 throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. You cannot possibly find the {index} smallest element");
             }
             if (index < 1)
@@ -104,7 +104,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawFindKthElementPath(binaryTree.root, index, null, Color.Green);
+                DrawFindKthElementPath(tree.root, index, null, Color.Green);
             }
         }
 

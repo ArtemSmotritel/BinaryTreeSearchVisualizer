@@ -12,7 +12,7 @@ namespace BinaryTreeSearchVisualizer.src
         private TextBox findTextBox;
         private TextBox findKElementTextBox;
         private Label messageLabel;
-        public BinaryTree binaryTree;
+        public BinarySearchTree tree;
 
         public FormEventHandler(
             DrawBox drawBox,
@@ -21,7 +21,7 @@ namespace BinaryTreeSearchVisualizer.src
             TextBox findTextBox,
             TextBox findKElementTextBox,
             Label messageLabel,
-            BinaryTree binaryTree
+            BinarySearchTree tree
             )
         {
             this.drawBox = drawBox;
@@ -30,7 +30,7 @@ namespace BinaryTreeSearchVisualizer.src
             this.findTextBox = findTextBox;
             this.findKElementTextBox = findKElementTextBox;
             this.messageLabel = messageLabel;
-            this.binaryTree = binaryTree;
+            this.tree = tree;
         }
 
         public static void ScrollCenter(Panel p)
@@ -48,8 +48,8 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(insertTextBox);
                 var value = long.Parse(insertTextBox.Text);
-                drawBox.DrawInsertPath(binaryTree, value);
-                binaryTree.Insert(value);
+                drawBox.DrawInsertPath(tree, value);
+                tree.Insert(value);
                 TriggerTreePaint();
             }
             catch (Exception e)
@@ -66,8 +66,8 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(removeTextBox);
                 var value = long.Parse(removeTextBox.Text);
-                drawBox.DrawRemovePath(binaryTree, value);
-                binaryTree.Remove(value);
+                drawBox.DrawRemovePath(tree, value);
+                tree.Remove(value);
                 TriggerTreePaint();
             }
             catch (Exception e)
@@ -84,7 +84,7 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(findTextBox);
                 var value = long.Parse(findTextBox.Text);
-                drawBox.DrawFindPath(binaryTree, value);
+                drawBox.DrawFindPath(tree, value);
             }
             catch (Exception e) 
             { 
@@ -100,7 +100,7 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(findKElementTextBox);
                 var value = long.Parse(findKElementTextBox.Text);
-                drawBox.DrawFindKthElementPath(binaryTree, value);
+                drawBox.DrawFindKthElementPath(tree, value);
             }
             catch (Exception e)
             {

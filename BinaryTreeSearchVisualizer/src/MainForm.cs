@@ -5,16 +5,16 @@ namespace BinaryTreeSearchVisualizer
 {
     public partial class MainForm : Form
     {
-        private BinaryTree binaryTree;
+        private BinarySearchTree tree;
         private FormEventHandler formEventHandler;
 
         public MainForm()
         {
             InitializeComponent();
-            binaryTree = new BinaryTree();
+            tree = new BinarySearchTree();
             formEventHandler = new FormEventHandler(
                 drawBox, insertTextBox, removeTextBox, findTextBox,
-                findKElementTextBox, messageLabel, binaryTree
+                findKElementTextBox, messageLabel, tree
             );
             FormEventHandler.ScrollCenter(panelForDrawBox);
         }
@@ -46,8 +46,8 @@ namespace BinaryTreeSearchVisualizer
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            binaryTree = new BinaryTree();
-            formEventHandler.binaryTree = binaryTree;
+            tree = new BinarySearchTree();
+            formEventHandler.tree = tree;
             drawBox.lastHighlightedNode = null;
             formEventHandler.TriggerTreePaint();
             FormEventHandler.ScrollCenter(panelForDrawBox);
@@ -55,7 +55,7 @@ namespace BinaryTreeSearchVisualizer
 
         private void drawBox_Paint(object sender, PaintEventArgs e)
         {
-            drawBox.DrawTree(binaryTree, e.Graphics);
+            drawBox.DrawTree(tree, e.Graphics);
         }
 
         private void insertTextBox_KeyPress(object sender, KeyPressEventArgs e)
