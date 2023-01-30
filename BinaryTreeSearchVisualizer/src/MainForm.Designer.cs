@@ -55,6 +55,7 @@ namespace BinaryTreeSearchVisualizer
             this.insertButton.Name = "insertButton";
             this.insertButton.Size = new System.Drawing.Size(95, 29);
             this.insertButton.TabIndex = 0;
+            this.insertButton.TabStop = false;
             this.insertButton.Text = "Insert";
             this.insertButton.UseVisualStyleBackColor = true;
             this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
@@ -82,6 +83,7 @@ namespace BinaryTreeSearchVisualizer
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(95, 29);
             this.removeButton.TabIndex = 2;
+            this.removeButton.TabStop = false;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
@@ -101,6 +103,7 @@ namespace BinaryTreeSearchVisualizer
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(95, 29);
             this.findButton.TabIndex = 4;
+            this.findButton.TabStop = false;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
@@ -120,6 +123,7 @@ namespace BinaryTreeSearchVisualizer
             this.findKElementButton.Name = "findKElementButton";
             this.findKElementButton.Size = new System.Drawing.Size(152, 29);
             this.findKElementButton.TabIndex = 6;
+            this.findKElementButton.TabStop = false;
             this.findKElementButton.Text = "Find k-th smallest";
             this.findKElementButton.UseVisualStyleBackColor = true;
             this.findKElementButton.Click += new System.EventHandler(this.findKElementButton_Click);
@@ -152,7 +156,7 @@ namespace BinaryTreeSearchVisualizer
             this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
             this.drawBox.Location = new System.Drawing.Point(3, 3);
             this.drawBox.Name = "drawBox";
-            this.drawBox.Size = new System.Drawing.Size(VisualizerProperty.drawBoxSize.Width, VisualizerProperty.drawBoxSize.Height);
+            this.drawBox.Size = new System.Drawing.Size(3000, 2000);
             this.drawBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.drawBox.TabIndex = 9;
             this.drawBox.TabStop = false;
@@ -192,7 +196,7 @@ namespace BinaryTreeSearchVisualizer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1046, 643);
             this.Name = "MainForm";
-            this.Text = "Binary Tree Search Visualizer";
+            this.Text = "Binary Search Tree Visualizer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.drawBox)).EndInit();
             this.panelForDrawBox.ResumeLayout(false);
