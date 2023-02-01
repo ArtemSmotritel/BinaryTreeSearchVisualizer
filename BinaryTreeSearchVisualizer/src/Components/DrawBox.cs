@@ -8,25 +8,17 @@ namespace BinaryTreeSearchVisualizer.src.Components
     {
         private static readonly Color traversalColor = Color.Blue;
 
-        private Graphics? pathGraphics;
+        private Graphics? pathGraphics = null;
         public NodeInfo? lastHighlightedNode;
-        public DrawBox() : base()
-        {
-            pathGraphics = null;
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-        }
 
         public void DrawTree(BinarySearchTree tree, Graphics graphics)
         {
             lastHighlightedNode = null;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             var nodeInfos = tree.GetNodesInfo();
-            foreach (var nodeInfo in nodeInfos)
-            {
-                GraphicUtils.DrawConnectionToParent(nodeInfo, graphics);
-            }
             foreach (var node in nodeInfos)
             {
+                GraphicUtils.DrawConnectionToParent(node, graphics);
                 GraphicUtils.DrawNode(node, graphics);
             }
         }
