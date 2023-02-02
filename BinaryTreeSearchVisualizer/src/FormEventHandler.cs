@@ -23,7 +23,7 @@ namespace BinaryTreeSearchVisualizer.src
 
         public static void ScrollCenter(Panel p)
         {
-            using (Control c = new Control() { Parent = p, Height = 0, Left = VisualizerProperty.rootCenter.X + 505 })
+            using (Control c = new Control() { Parent = p, Height = 0, Left = VisualizerProperty.rootCenter.X + p.Parent.Width / 2 - p.HorizontalScroll.Value })
             {
                 p.ScrollControlIntoView(c);
             }
