@@ -48,8 +48,9 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(insertTextBox);
                 var value = long.Parse(insertTextBox.Text);
-                drawBox.DrawInsertPath(tree, value);
+                drawBox.DrawPath(tree, value, VisualizerProperty.findInsertColor, VisualizerProperty.missingInsertColor);
                 tree.Insert(value);
+                Thread.Sleep(VisualizerProperty.timeGap);
                 TriggerTreePaint();
             }
             catch (Exception e)
@@ -66,8 +67,9 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(removeTextBox);
                 var value = long.Parse(removeTextBox.Text);
-                drawBox.DrawRemovePath(tree, value);
+                drawBox.DrawPath(tree, value, VisualizerProperty.findRemoveColor, VisualizerProperty.missingRemoveColor);
                 tree.Remove(value);
+                Thread.Sleep(VisualizerProperty.timeGap);
                 TriggerTreePaint();
             }
             catch (Exception e)
@@ -84,7 +86,7 @@ namespace BinaryTreeSearchVisualizer.src
             {
                 ValidateInput(findTextBox);
                 var value = long.Parse(findTextBox.Text);
-                drawBox.DrawFindPath(tree, value);
+                drawBox.DrawPath(tree, value, VisualizerProperty.findFindColor, VisualizerProperty.missingFindColor);
             }
             catch (Exception e) 
             { 

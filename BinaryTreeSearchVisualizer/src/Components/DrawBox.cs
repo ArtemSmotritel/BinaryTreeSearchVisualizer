@@ -6,7 +6,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
 {
     internal class DrawBox : PictureBox
     {
-        private static readonly Color traversalColor = Color.Blue;
+        private static readonly Color traversalColor = VisualizerProperty.traverseColor;
 
         private Graphics? pathGraphics = null;
         public NodeInfo? lastHighlightedNode;
@@ -35,7 +35,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             }
         }
 
-        public void DrawRemovePath(BinarySearchTree tree, long value)
+        public void DrawPath(BinarySearchTree tree, long value, Color findColor, Color missingColor)
         {
             HideLastHighlight();
             if (tree == null || tree.root == null)
@@ -45,35 +45,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(tree.root, value, null, Color.Red, Color.Blue);
-            }
-        }
-
-        public void DrawInsertPath(BinarySearchTree tree, long value)
-        {
-            HideLastHighlight();
-            if (tree == null || tree.root == null)
-            {
-                return;
-            }
-            using (pathGraphics = CreateGraphics())
-            {
-                pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(tree.root, value, null, Color.Green, Color.Blue);
-            }
-        }
-
-        public void DrawFindPath(BinarySearchTree tree, long value)
-        {
-            HideLastHighlight();
-            if (tree == null || tree.root == null)
-            {
-                return;
-            }
-            using (pathGraphics = CreateGraphics())
-            {
-                pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawPath(tree.root, value, null, Color.Green, Color.Red);
+                DrawPath(tree.root, value, null, findColor, missingColor);
             }
         }
 
@@ -96,7 +68,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             using (pathGraphics = CreateGraphics())
             {
                 pathGraphics.SmoothingMode = SmoothingMode.AntiAlias;
-                DrawFindKthElementPath(tree.root, index, null, Color.Green);
+                DrawFindKthElementPath(tree.root, index, null, VisualizerProperty.findFindColor);
             }
         }
 
@@ -146,7 +118,6 @@ namespace BinaryTreeSearchVisualizer.src.Components
             if (value == node.Value)
             {
                 GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, findColor);
-                Thread.Sleep(VisualizerProperty.timeGap);
                 return;
             }
 
