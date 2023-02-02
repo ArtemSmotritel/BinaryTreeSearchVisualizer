@@ -7,28 +7,16 @@ namespace BinaryTreeSearchVisualizer.src
     internal class FormEventHandler
     {
         private DrawBox drawBox;
-        private TextBox insertTextBox;
-        private TextBox removeTextBox;
-        private TextBox findTextBox;
-        private TextBox findKElementTextBox;
         private Label messageLabel;
         public BinarySearchTree tree;
 
         public FormEventHandler(
             DrawBox drawBox,
-            TextBox insertTextBox,
-            TextBox removeTextBox,
-            TextBox findTextBox,
-            TextBox findKElementTextBox,
             Label messageLabel,
             BinarySearchTree tree
             )
         {
             this.drawBox = drawBox;
-            this.insertTextBox = insertTextBox;
-            this.removeTextBox = removeTextBox;
-            this.findTextBox = findTextBox;
-            this.findKElementTextBox = findKElementTextBox;
             this.messageLabel = messageLabel;
             this.tree = tree;
         }
@@ -41,7 +29,7 @@ namespace BinaryTreeSearchVisualizer.src
             }
         }
 
-        public void HandleInsert()
+        public void HandleInsert(TextBox insertTextBox)
         {
             ResetAndHideMessageLabel();
             try
@@ -60,7 +48,7 @@ namespace BinaryTreeSearchVisualizer.src
             RefreshTextBox(insertTextBox);
         }
 
-        public void HandleRemove()
+        public void HandleRemove(TextBox removeTextBox)
         {
             ResetAndHideMessageLabel();
             try
@@ -79,7 +67,7 @@ namespace BinaryTreeSearchVisualizer.src
             RefreshTextBox(removeTextBox);
         }
 
-        public void HandleFind()
+        public void HandleFind(TextBox findTextBox)
         {
             ResetAndHideMessageLabel();
             try
@@ -95,7 +83,7 @@ namespace BinaryTreeSearchVisualizer.src
             RefreshTextBox(findTextBox);
         }
 
-        public void HandleFindKElement()
+        public void HandleFindKElement(TextBox findKElementTextBox)
         {
             ResetAndHideMessageLabel();
             try

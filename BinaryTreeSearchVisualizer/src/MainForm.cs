@@ -13,8 +13,7 @@ namespace BinaryTreeSearchVisualizer
             InitializeComponent();
             tree = new BinarySearchTree();
             formEventHandler = new FormEventHandler(
-                drawBox, insertTextBox, removeTextBox, findTextBox,
-                findKElementTextBox, messageLabel, tree
+                drawBox, messageLabel, tree
             );
             FormEventHandler.ScrollCenter(panelForDrawBox);
         }
@@ -26,22 +25,22 @@ namespace BinaryTreeSearchVisualizer
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            formEventHandler.HandleInsert();
+            formEventHandler.HandleInsert(insertTextBox);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            formEventHandler.HandleRemove();
+            formEventHandler.HandleRemove(removeTextBox);
         }
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            formEventHandler.HandleFind();
+            formEventHandler.HandleFind(findTextBox);
         }
 
         private void findKElementButton_Click(object sender, EventArgs e)
         {   
-            formEventHandler.HandleFindKElement();
+            formEventHandler.HandleFindKElement(findKElementTextBox);
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -63,7 +62,7 @@ namespace BinaryTreeSearchVisualizer
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
                 e.Handled = true;
-                formEventHandler.HandleInsert();
+                formEventHandler.HandleInsert(insertTextBox);
             }
         }
 
@@ -72,7 +71,7 @@ namespace BinaryTreeSearchVisualizer
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
                 e.Handled = true;
-                formEventHandler.HandleRemove();
+                formEventHandler.HandleRemove(removeTextBox);
             }
         }
 
@@ -81,7 +80,7 @@ namespace BinaryTreeSearchVisualizer
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
                 e.Handled = true;
-                formEventHandler.HandleFind();
+                formEventHandler.HandleFind(findTextBox);
             }
         }
 
@@ -90,7 +89,7 @@ namespace BinaryTreeSearchVisualizer
             if (e.KeyChar == Convert.ToChar(Keys.Return))
             {
                 e.Handled = true;
-                formEventHandler.HandleFindKElement();
+                formEventHandler.HandleFindKElement(findKElementTextBox);
             }
         }
 
