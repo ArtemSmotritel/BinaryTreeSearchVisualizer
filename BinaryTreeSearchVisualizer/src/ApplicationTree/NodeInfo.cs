@@ -34,9 +34,9 @@ namespace BinaryTreeSearchVisualizer.src.ApplicationTree
         public NodeInfo? ParentNodeInfo { get; private set; }
         public NodeInfo? LeftChildNodeInfo { get; set; }
         public NodeInfo? RightChildNodeInfo { get; set; }
-        public bool IsRightChild {  get; private set; }
-        public bool IsLeftChild {  get; private set; }
-        public bool IsRoot {  get; private set; }
+        private bool IsRightChild {  get; set; }
+        private bool IsLeftChild {  get; set; }
+        private bool IsRoot {  get; set; }
         public int CenterX { get; private set; }
         public int CenterY { get; private set; }
         public int Radius { get { return VisualizerProperty.nodeRadius; } }
