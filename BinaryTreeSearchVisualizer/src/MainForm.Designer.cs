@@ -156,7 +156,7 @@ namespace BinaryTreeSearchVisualizer
             this.drawBox.BackColor = System.Drawing.SystemColors.Menu;
             this.drawBox.Location = new System.Drawing.Point(3, 3);
             this.drawBox.Name = "drawBox";
-            this.drawBox.Size = new System.Drawing.Size(3000, 2000);
+            this.drawBox.Size = new System.Drawing.Size(VisualizerProperty.drawBoxSize.Width, VisualizerProperty.drawBoxSize.Height);
             this.drawBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.drawBox.TabIndex = 9;
             this.drawBox.TabStop = false;
