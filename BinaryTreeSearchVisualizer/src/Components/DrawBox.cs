@@ -59,7 +59,8 @@ namespace BinaryTreeSearchVisualizer.src.Components
             if (index > tree.root.Size)
             {
                 var size = tree.root.Size;
-                throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. You cannot possibly find the {index} smallest element");
+                throw new Exception($"The tree has only {size} {(size == 1 ? "node" : "nodes")}. " +
+                    $"You cannot possibly find the {index} smallest element");
             }
             if (index < 1)
             {
@@ -74,7 +75,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
 
         private void DrawFindKthElementPath(ApplicationTree.TreeNode? node, long index, NodeInfo? parentNodeInfo, Color findColor)
         {
-            Thread.Sleep(600);
+            Thread.Sleep(VisualizerProperty.timeGap);
             GraphicUtils.HighlightNode(parentNodeInfo, pathGraphics!, Color.Black);
 
             var nodeInfo = NodeInfo.Create(node!, parentNodeInfo);
@@ -85,7 +86,7 @@ namespace BinaryTreeSearchVisualizer.src.Components
             if (index == nodeCountInLeftChild + 1)
             {
                 GraphicUtils.HighlightNode(nodeInfo, pathGraphics!, findColor);
-                Thread.Sleep(600);
+                Thread.Sleep(VisualizerProperty.timeGap);
                 return;
             }
 
